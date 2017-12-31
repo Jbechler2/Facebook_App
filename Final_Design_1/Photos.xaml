@@ -9,8 +9,8 @@
     <Grid>
         <Button Content="Home" HorizontalAlignment="Left" Margin="44,27,0,0" VerticalAlignment="Top" Width="201" Height="112" FontFamily="Arial" FontSize="40" Click="Button_Click"/>
         <TextBox x:Name="text1" HorizontalAlignment="Left" Height="202" Margin="0,518,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="294"/>
-        <Button Content="Prev" HorizontalAlignment="Left" Margin="494,532,0,0" VerticalAlignment="Top" Width="166" Height="150" Click="Button_Click_1"/>
-        <Button Content="Next" HorizontalAlignment="Left" Margin="788,532,0,0" VerticalAlignment="Top" Width="166" Height="150" Click="Button_Click_2"/>
+        <Button x:Name="prev" Content="Prev" HorizontalAlignment="Left" Margin="494,532,0,0" VerticalAlignment="Top" Width="166" Height="150" Click="Button_Click_1"/>
+        <Button x:Name="next" Content="Next" HorizontalAlignment="Left" Margin="788,532,0,0" VerticalAlignment="Top" Width="166" Height="150" Click="Button_Click_2"/>
         <Grid x:Name="album1" HorizontalAlignment="Left" Height="290" Margin="307,122,0,0" VerticalAlignment="Top" Width="261">
             <Image x:Name="album1_cover" HorizontalAlignment="Left" Height="267" Margin="10,0,0,0" VerticalAlignment="Top" Width="241"/>
             <TextBlock x:Name="album1_title"  HorizontalAlignment="Left" Margin="95,272,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
@@ -20,7 +20,7 @@
             <TextBlock x:Name="album2_title"  HorizontalAlignment="Left" Margin="95,272,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
         </Grid>
 
-        <Button Content="Expand" HorizontalAlignment="Left" Height="61" Margin="321,417,0,0" VerticalAlignment="Top" Width="210"/>
-        <Button Content="Expand" HorizontalAlignment="Left" Height="61" Margin="812,417,0,0" VerticalAlignment="Top" Width="210"/>
+        <Button x:Name="expand1" Content="Expand" HorizontalAlignment="Left" Height="61" Margin="321,417,0,0" VerticalAlignment="Top" Width="210" Click="expand1_Click"/>
+        <Button x:Name="expand2" Content="Expand" HorizontalAlignment="Left" Height="61" Margin="812,417,0,0" VerticalAlignment="Top" Width="210" Click="expand2_Click"/>
     </Grid>
 </UserControl>
