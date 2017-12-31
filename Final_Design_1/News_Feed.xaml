@@ -51,7 +51,7 @@
                 <TextBlock x:Name="post2_status"  HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Margin="15,80,0,0" Height="108" Width="332"/>
             </Grid>
         </Border>
-        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="193" Margin="727,517,0,0" Stroke="Black" VerticalAlignment="Top" Width="91"/>
+        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="193" Margin="671,124,0,0" Stroke="Black" VerticalAlignment="Top" Width="91"/>
 
 
     </Grid>

@@ -228,3 +228,38 @@ C:\Users\jbech\Dropbox\C# Projects\Final_Design_1\Final_Design_1\obj\Debug\Final
 C:\Users\jbech\Documents\git_repos\Facebook_App\Final_Design_1\bin\Debug\Final_Design_1.exe.config
 C:\Users\jbech\Documents\git_repos\Facebook_App\Final_Design_1\obj\Debug\Final_Design_1.exe
 C:\Users\jbech\Documents\git_repos\Facebook_App\Final_Design_1\obj\Debug\Final_Design_1.pdb
+C:\Users\Elaine Zabriskie\Documents\git_repos\Facebook_App\Final_Design_1\bin\Debug\Final_Design_1.exe.config
+C:\Users\Elaine Zabriskie\Documents\git_repos\Facebook_App\Final_Design_1\bin\Debug\Final_Design_1.exe
+C:\Users\Elaine Zabriskie\Documents\git_repos\Facebook_App\Final_Design_1\bin\Debug\Final_Design_1.pdb
+C:\Users\Elaine Zabriskie\Documents\git_repos\Facebook_App\Final_Design_1\bin\Debug\Facebook.dll
+C:\Users\Elaine Zabriskie\Documents\git_repos\Facebook_App\Final_Design_1\bin\Debug\Facebook.xml
+C:\Users\Elaine Zabriskie\Documents\git_repos\Facebook_App\Final_Design_1\obj\Debug\Final_Design_1.csprojResolveAssemblyReference.cache
+C:\Users\Elaine Zabriskie\Documents\git_repos\Facebook_App\Final_Design_1\obj\Debug\Base.g.cs
+C:\Users\Elaine Zabriskie\Documents\git_repos\Facebook_App\Final_Design_1\obj\Debug\Friends.g.cs
+C:\Users\Elaine Zabriskie\Documents\git_repos\Facebook_App\Final_Design_1\obj\Debug\MainWindow.g.cs
+C:\Users\Elaine Zabriskie\Documents\git_repos\Facebook_App\Final_Design_1\obj\Debug\Messaging.g.cs
+C:\Users\Elaine Zabriskie\Documents\git_repos\Facebook_App\Final_Design_1\obj\Debug\NewsFeed.g.cs
+C:\Users\Elaine Zabriskie\Documents\git_repos\Facebook_App\Final_Design_1\obj\Debug\News_Feed.g.cs
+C:\Users\Elaine Zabriskie\Documents\git_repos\Facebook_App\Final_Design_1\obj\Debug\Notifications.g.cs
+C:\Users\Elaine Zabriskie\Documents\git_repos\Facebook_App\Final_Design_1\obj\Debug\Photos.g.cs
+C:\Users\Elaine Zabriskie\Documents\git_repos\Facebook_App\Final_Design_1\obj\Debug\Profile.g.cs
+C:\Users\Elaine Zabriskie\Documents\git_repos\Facebook_App\Final_Design_1\obj\Debug\TestWindow.g.cs
+C:\Users\Elaine Zabriskie\Documents\git_repos\Facebook_App\Final_Design_1\obj\Debug\App.g.cs
+C:\Users\Elaine Zabriskie\Documents\git_repos\Facebook_App\Final_Design_1\obj\Debug\Final_Design_1_MarkupCompile.cache
+C:\Users\Elaine Zabriskie\Documents\git_repos\Facebook_App\Final_Design_1\obj\Debug\Final_Design_1_MarkupCompile.lref
+C:\Users\Elaine Zabriskie\Documents\git_repos\Facebook_App\Final_Design_1\obj\Debug\Base.baml
+C:\Users\Elaine Zabriskie\Documents\git_repos\Facebook_App\Final_Design_1\obj\Debug\Friends.baml
+C:\Users\Elaine Zabriskie\Documents\git_repos\Facebook_App\Final_Design_1\obj\Debug\MainWindow.baml
+C:\Users\Elaine Zabriskie\Documents\git_repos\Facebook_App\Final_Design_1\obj\Debug\Messaging.baml
+C:\Users\Elaine Zabriskie\Documents\git_repos\Facebook_App\Final_Design_1\obj\Debug\NewsFeed.baml
+C:\Users\Elaine Zabriskie\Documents\git_repos\Facebook_App\Final_Design_1\obj\Debug\News_Feed.baml
+C:\Users\Elaine Zabriskie\Documents\git_repos\Facebook_App\Final_Design_1\obj\Debug\Notifications.baml
+C:\Users\Elaine Zabriskie\Documents\git_repos\Facebook_App\Final_Design_1\obj\Debug\Photos.baml
+C:\Users\Elaine Zabriskie\Documents\git_repos\Facebook_App\Final_Design_1\obj\Debug\Profile.baml
+C:\Users\Elaine Zabriskie\Documents\git_repos\Facebook_App\Final_Design_1\obj\Debug\TestWindow.baml
+C:\Users\Elaine Zabriskie\Documents\git_repos\Facebook_App\Final_Design_1\obj\Debug\Final_Design_1.g.resources
+C:\Users\Elaine Zabriskie\Documents\git_repos\Facebook_App\Final_Design_1\obj\Debug\Final_Design_1.Properties.Resources.resources
+C:\Users\Elaine Zabriskie\Documents\git_repos\Facebook_App\Final_Design_1\obj\Debug\Final_Design_1.csproj.GenerateResource.Cache
+C:\Users\Elaine Zabriskie\Documents\git_repos\Facebook_App\Final_Design_1\obj\Debug\Final_Design_1.csproj.CoreCompileInputs.cache
+C:\Users\Elaine Zabriskie\Documents\git_repos\Facebook_App\Final_Design_1\obj\Debug\Final_Design_1.exe
+C:\Users\Elaine Zabriskie\Documents\git_repos\Facebook_App\Final_Design_1\obj\Debug\Final_Design_1.pdb
