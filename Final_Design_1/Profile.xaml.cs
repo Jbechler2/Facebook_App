@@ -28,8 +28,8 @@ namespace Final_Design_1
 
         public dynamic fb_client()
         {
-            dynamic fb = new FacebookClient("EAAE3jEAMPzkBAPfxIGNPuVBKOQ4OwyNsKc7uw5Hn2LQQ0punnTByxqRXwdTvueA0oXW5rV5KkzSZA152HZATdC7F7ZCTKMSdM2PXqshUGd0YTlbFVKjQCQaFCVHidf0YSIz5T8ZBYntABBxnvwIrj0ZAfrSgdivcZD");
-            return fb;
+            MainWindow mw = new MainWindow();
+            return mw.fb_client();
         }
 
         public Profile()

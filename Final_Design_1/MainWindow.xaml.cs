@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+using Facebook;
 
 namespace Final_Design_1
 {
@@ -25,6 +26,12 @@ namespace Final_Design_1
         {
             InitializeComponent();
             position_elements();
+        }
+
+        public dynamic fb_client()
+        {
+            dynamic result = new FacebookClient("");
+            return result;
         }
 
         private void position_elements()

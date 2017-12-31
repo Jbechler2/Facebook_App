@@ -29,8 +29,8 @@ namespace Final_Design_1
          user access token*/
         public dynamic fb_client()
         {
-            dynamic result = new FacebookClient("EAAE3jEAMPzkBABigoPndSjT8j4c1ctw0Tpve0tA6lIUztWZC5ZBboLUNx8ZCLUtl6haz4qDE9ZBpDoxhRKDkZAcDeT0ZCCuGP2S3EvXjHoLiZCtmRUQBLkKraFErIoHKLDedBKWgbWfguhf7rf2w2pAMJjvKjpfZAsnEkRQ2dTPp0QZDZD");
-            return result;
+            MainWindow mw = new MainWindow();
+            return mw.fb_client();
         }
 
         public Messaging()

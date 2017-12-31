@@ -38,8 +38,8 @@ namespace Final_Design_1
 
         public dynamic fb_client()
         {
-            dynamic result = new FacebookClient("EAAE3jEAMPzkBABigoPndSjT8j4c1ctw0Tpve0tA6lIUztWZC5ZBboLUNx8ZCLUtl6haz4qDE9ZBpDoxhRKDkZAcDeT0ZCCuGP2S3EvXjHoLiZCtmRUQBLkKraFErIoHKLDedBKWgbWfguhf7rf2w2pAMJjvKjpfZAsnEkRQ2dTPp0QZDZD");
-            return result;
+            MainWindow mw = new MainWindow();
+            return mw.fb_client();
         }
 
         private void set_image(dynamic image_object, string image_source)
@@ -77,8 +77,6 @@ namespace Final_Design_1
 
         private void set_posts(int opt)
         {
-            set_textbox(debug, "bpost_cntr: " + post_cntr.ToString());
-
             bool post1_set = false;
             bool post2_set = false;
 
@@ -113,7 +111,6 @@ namespace Final_Design_1
                 bound_postCntr();
                 post2_set = true;
             }
-            debug.Text += "\napost_cntr: " + post_cntr.ToString();
         }
 
         private void set_post1(dynamic post)
