@@ -37,7 +37,7 @@
         <TextBox x:Name="debug" HorizontalAlignment="Left" Height="196" Margin="0,524,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="254"/>
         <Button x:Name="prev" Content="Prev Two" HorizontalAlignment="Left" Margin="584,557,0,0" VerticalAlignment="Top" Width="129" Height="109" FontSize="22" FontWeight="Bold" Click="Button_Click_2"/>
         <Button x:Name="next" Content="Next Two" HorizontalAlignment="Left" Margin="829,557,0,0" VerticalAlignment="Top" Width="129" Height="109" FontSize="22" FontWeight="Bold" Click="Button_Click_1"/>
-        <Image x:Name="image1" HorizontalAlignment="Left" Height="161" VerticalAlignment="Top" Width="170" Margin="44,438,0,0"/>
+        <Image x:Name="image1" HorizontalAlignment="Left" Height="161" VerticalAlignment="Top" Width="170" Margin="31,314,0,0"/>
 
         <Border x:Name="post2_block" BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="350" VerticalAlignment="Top" Width="362" Margin="826,46,0,0" CornerRadius="3" Background="#FF3B5998">
             <Border.Effect>
@@ -51,7 +51,6 @@
                 <TextBlock x:Name="post2_status"  HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Margin="15,80,0,0" Height="108" Width="332"/>
             </Grid>
         </Border>
-        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="193" Margin="671,124,0,0" Stroke="Black" VerticalAlignment="Top" Width="91"/>
 
 
     </Grid>

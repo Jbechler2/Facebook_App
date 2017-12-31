@@ -259,7 +259,20 @@ namespace Final_Design_1
 
         private void expand1_Click(object sender, RoutedEventArgs e)
         {
+            hide_object(post2_block);
+            hide_object(expand2);
+            expand1.Click -= expand1_Click;
+            expand1.Click += minimize1_Click;
+            expand1.Content = "Minimize";
+        }
 
+        private void minimize1_Click(object sender, RoutedEventArgs e)
+        {
+            show_object(post2_block);
+            show_object(expand2);
+            expand1.Click -= minimize1_Click;
+            expand1.Click += expand1_Click;
+            expand1.Content = "Expand";
         }
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
@@ -274,7 +287,20 @@ namespace Final_Design_1
 
         private void expand2_Click(object sender, RoutedEventArgs e)
         {
+            hide_object(post1_block);
+            hide_object(expand1);
+            expand2.Click -= expand2_Click;
+            expand2.Click += minimize2_Click;
+            expand2.Content = "Minimize";
+        }
 
+        private void minimize2_Click(object sender, RoutedEventArgs e)
+        {
+            show_object(post1_block);
+            show_object(expand1);
+            expand2.Click -= minimize2_Click;
+            expand2.Click += expand2_Click;
+            expand2.Content = "Expand";
         }
     }
 }
