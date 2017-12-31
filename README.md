@@ -4,7 +4,7 @@ The goal of this project is to provide access to Facebook in a way that is usefu
 
 ## Getting Started
 
-To run this program using your own Facebook account, go to the [Graph API Explorer](https://developers.facebook.com/tools/explorer/) and request an Access Token. Open the "" file and paste the token into the "new FacebookClient" function. The program will then only have permission for what it was given when the token was requested.
+To run this program using your own Facebook account, go to the [Graph API Explorer](https://developers.facebook.com/tools/explorer/) and request an Access Token. Open the MainWindow.xaml.cs file and paste the token into the "new FacebookClient" function. The program will then only have permission for what it was given when the token was requested.
 
 ## Built with
 
