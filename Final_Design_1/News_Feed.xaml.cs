@@ -77,145 +77,125 @@ namespace Final_Design_1
 
         private void set_posts(int opt)
         {
+            set_textbox(debug, "bpost_cntr: " + post_cntr.ToString());
+
             bool post1_set = false;
             bool post2_set = false;
 
-            if (!got_posts)
-            {
+            clear_post1();
+            clear_post2();
+
+            if (!got_posts) //If we haven't requested the user's posts, then we do that here.
                 get_userPosts();
-            }
 
-            if(opt == 1)
-            {
+            if (opt == 1 && !(post_cntr > result.data.Count))
                 post_cntr = post2_cntr + 1;
-            }
 
-            bound_postCntr();
-
-            while(post_cntr < result.data.Count && (!post1_set || !post2_set))
+            if(post_cntr >= result.data.Count-1)
             {
-
-
-                if (!post1_set)
-                {
-                    set_textbox(post1_status, "");
-                    set_textbox(post1_name, "");
-                    post1_image1.Source = null;
-                    post1_image2.Source = null;
-                    if (result.data[post_cntr].ContainsKey("from"))
-                        set_textbox(post1_name, result.data[post_cntr].from.name);
-                    if (result.data[post_cntr].ContainsKey("message"))
-                        set_textbox(post1_status, result.data[post_cntr].message);
-                    if (result.data[post_cntr].ContainsKey("attachments"))
-                    {
-                        if (!result.data[post_cntr].attachments.ContainsKey("subattachments"))
-                            set_image(post1_image1, get_singleImageSrc(result.data[post_cntr]));
-                    }
-                    if (result.data[post_cntr].ContainsKey("attachments"))
-                    {
-                        if (result.data[post_cntr].ContainsKey("subattachments"))
-                        {
-                            get_multiImageSrc(result.data[post_cntr], 0);
-                            get_multiImageSrc(result.data[post_cntr], 1);
-                        }
-                    }
-
-                    post1_cntr = post_cntr++;
-                    post1_set = true;
-
-                    clear_post2();
-
-                    continue;
-                }
-                bound_postCntr();
-                if (!post2_set)
-                {
-                    set_textbox(post2_status, "");
-                    set_textbox(post2_name, "");
-                    post2_image1.Source = null;
-                    post2_image2.Source = null;
-                    if (result.data[post_cntr].ContainsKey("from"))
-                        set_textbox(post2_name, result.data[post_cntr].from.name);
-                    if (result.data[post_cntr].ContainsKey("message"))
-                        set_textbox(post2_status, result.data[post_cntr].message);
-                    if (result.data[post_cntr].ContainsKey("attachments"))
-                        if (!result.data[post_cntr].attachments.data[0].ContainsKey("subattachments"))
-                            set_image(post2_image1, get_singleImageSrc(result.data[post_cntr]));
-                    if (result.data[post_cntr].ContainsKey("attachments"))
-                    {
-                        if (result.data[post_cntr].attachments.data[0].ContainsKey("subattachments"))
-                        {
-                            //set_textbox(debug, result.data[post_cntr].attachments.ToString());
-                            set_image(post2_image1, get_multiImageSrc(result.data[post_cntr], 0));
-                            set_image(post2_image2, get_multiImageSrc(result.data[post_cntr], 1));
-                        }
-                    }
-
-                    post2_cntr = post_cntr++;
-                    post2_set = true;
-                }
-
-
+                post1_cntr = result.data.Count;
+                post_cntr = result.data.Count;
+                scroll_backward();
             }
-            bound_postCntr();
+
+            while (post_cntr < result.data.Count && (!post1_set || !post2_set))
+            {
+                set_post1(result.data[post_cntr]);
+                post1_cntr = post_cntr++;
+                bound_postCntr();
+                post1_set = true;
+
+                if (post_cntr >= result.data.Count)
+                    continue;
+
+                set_post2(result.data[post_cntr]);
+                post2_cntr = post_cntr++;
+                bound_postCntr();
+                post2_set = true;
+            }
+            debug.Text += "\napost_cntr: " + post_cntr.ToString();
         }
 
-        
+        private void set_post1(dynamic post)
+        {
+            if (post.ContainsKey("from"))
+                set_textbox(post1_name, post.from.name);
+            if (post.ContainsKey("message"))
+                set_textbox(post1_status, post.message);
+            if (post.ContainsKey("attachments"))
+            {
+                if (post.attachments.data[0].ContainsKey("subattachments"))
+                {
+                    set_image(post1_image1, get_multiImageSrc(post, 0));
+                    set_image(post1_image2, get_multiImageSrc(post, 1));
+                }
+                else
+                {
+                    set_image(post1_image1, get_singleImageSrc(post));
+                }
+            }
+        }
+
+        private void set_post2(dynamic post)
+        {
+            if (post.ContainsKey("from"))
+                set_textbox(post2_name, post.from.name);
+            if (post.ContainsKey("message"))
+                set_textbox(post2_status, post.message);
+            if (post.ContainsKey("attachments"))
+            {
+                if (post.attachments.data[0].ContainsKey("subattachments"))
+                {
+                    set_image(post2_image1, get_multiImageSrc(post, 0));
+                    set_image(post2_image2, get_multiImageSrc(post, 1));
+                }
+                else
+                {
+                    set_image(post2_image1, get_singleImageSrc(post));
+                }
+            }
+        }
 
         private void scroll_backward()
         {
+
             bool post1_set = false;
             bool post2_set = false;
+
             post_cntr = post1_cntr - 1;
             bound_postCntr();
+            
+            clear_post1();
+            clear_post2();
 
-            while(post_cntr >= 0 && (!post1_set || !post2_set))
+            if(post_cntr <= 0)
             {
-                if (!post2_set)
-                {
-                    if (result.data[post_cntr].ContainsKey("message"))
-                        if (result.data[post_cntr].message != post1_status.Text)
-                        {
-                            set_textbox(post2_status, result.data[post_cntr].message);
-                            if (result.data[post_cntr].ContainsKey("from"))
-                                set_textbox(post2_name, result.data[post_cntr].from.name);
-                            if (result.data[post_cntr].ContainsKey("attachments"))
-                                if (!result.data[post_cntr].attachments.data[0].ContainsKey("subattachments"))
-                                    set_image(post2_image1, get_singleImageSrc(result.data[post_cntr]));
-                            if (result.data[post_cntr].ContainsKey("attachments"))
-                            {
-                                if (result.data[post_cntr].attachments.data[0].ContainsKey("subattachments"))
-                                {
-                                    set_image(post2_image1, get_multiImageSrc(result.data[post_cntr], 0));
-                                    set_image(post2_image2, get_multiImageSrc(result.data[post_cntr], 1));
-                                }
-                            }
-
-                            post2_cntr = post_cntr--;
-                            post2_set = true;
-                        }
-                }
-                if (!post1_set)
-                {
-                    if (result.data[post_cntr].ContainsKey("message"))
-                        set_textbox(post1_status, result.data[post_cntr].message);
-                    if (result.data[post_cntr].ContainsKey("from"))
-                        set_textbox(post1_name, result.data[post_cntr].from.name);
-                    if (result.data[post_cntr].ContainsKey("attachments"))
-                        if (!result.data[post_cntr].attachments.data[0].ContainsKey("subattachments"))
-                            set_image(post1_image1, get_singleImageSrc(result.data[post_cntr]));
-                    if (result.data[post_cntr].ContainsKey("attachments"))
-                    {
-                        if (result.data[post_cntr].attachments.data[0].ContainsKey("subattachments"))
-                        {
-                            set_image(post1_image1, get_multiImageSrc(result.data[post_cntr], 0));
-                            set_image(post1_image2, get_multiImageSrc(result.data[post_cntr], 1));
-                        }
-                    }
-                    post1_cntr = post_cntr--;
-                    post1_set = true;
-                }
+                post_cntr = 0;
+                set_posts(0);
+                return;
             }
+
+            while(post_cntr > 0 && (!post1_set || !post2_set))
+            {
+                set_post2(result.data[post_cntr]);
+                post2_cntr = post_cntr--;
+                bound_postCntr();
+                post2_set = true;
+
+                set_post1(result.data[post_cntr]);
+                post1_cntr = post_cntr;
+                bound_postCntr();
+                post1_set = true;
+            }
+        }
+
+        private void clear_post1()
+        {
+            post1_profPic.Source = null;
+            set_textbox(post1_name, "");
+            set_textbox(post1_status, "");
+            post1_image1.Source = null;
+            post1_image2.Source = null;
         }
 
         private void clear_post2()
@@ -243,9 +223,9 @@ namespace Final_Design_1
         {
             if (post_cntr < 0)
             {
-                post_cntr = 1;
+                post_cntr = 0;
             }
-            if (post_cntr > result.data.Count)
+            if (post_cntr >= result.data.Count)
             {
                 post_cntr = result.data.Count + 1;
             }
