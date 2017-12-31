@@ -7,10 +7,20 @@
              mc:Ignorable="d" 
              d:DesignHeight="720" d:DesignWidth="1280" Background="#FF3B5998">
     <Grid>
-        <Label Content="Facebook" HorizontalAlignment="Left" Margin="433
-               ,49,0,0" VerticalAlignment="Top" Height="90" Width="342" FontSize="70" FontWeight="Bold" FontFamily="Arial" Foreground="White"/>
         <Button Content="Home" HorizontalAlignment="Left" Margin="44,27,0,0" VerticalAlignment="Top" Width="201" Height="112" FontFamily="Arial" FontSize="40" Click="Button_Click"/>
-        <TextBox x:Name="text1" HorizontalAlignment="Left" Height="220" Margin="1042,490,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="228"/>
-        <Image x:Name="album1" HorizontalAlignment="Left" Height="348" Margin="30,194,0,0" VerticalAlignment="Top" Width="385"/>
+        <TextBox x:Name="text1" HorizontalAlignment="Left" Height="202" Margin="0,518,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="294"/>
+        <Button Content="Prev" HorizontalAlignment="Left" Margin="494,532,0,0" VerticalAlignment="Top" Width="166" Height="150" Click="Button_Click_1"/>
+        <Button Content="Next" HorizontalAlignment="Left" Margin="788,532,0,0" VerticalAlignment="Top" Width="166" Height="150" Click="Button_Click_2"/>
+        <Grid x:Name="album1" HorizontalAlignment="Left" Height="290" Margin="307,122,0,0" VerticalAlignment="Top" Width="261">
+            <Image x:Name="album1_cover" HorizontalAlignment="Left" Height="267" Margin="10,0,0,0" VerticalAlignment="Top" Width="241"/>
+            <TextBlock x:Name="album1_title"  HorizontalAlignment="Left" Margin="95,272,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        </Grid>
+        <Grid x:Name="album2" HorizontalAlignment="Left" Height="290" Margin="788,122,0,0" VerticalAlignment="Top" Width="262">
+            <Image x:Name="album2_cover" HorizontalAlignment="Left" Height="267" Margin="10,0,0,0" VerticalAlignment="Top" Width="241"/>
+            <TextBlock x:Name="album2_title"  HorizontalAlignment="Left" Margin="95,272,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        </Grid>
+
+        <Button Content="Expand" HorizontalAlignment="Left" Height="61" Margin="321,417,0,0" VerticalAlignment="Top" Width="210"/>
+        <Button Content="Expand" HorizontalAlignment="Left" Height="61" Margin="812,417,0,0" VerticalAlignment="Top" Width="210"/>
     </Grid>
 </UserControl>

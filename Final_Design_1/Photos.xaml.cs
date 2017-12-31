@@ -29,6 +29,16 @@ namespace Final_Design_1
             return mw.fb_client();
         }
 
+        private void set_image(dynamic image_object, string image_source)
+        {
+            BitmapImage bitmap = new BitmapImage();
+            bitmap.BeginInit();
+            bitmap.UriSource = new Uri(image_source, UriKind.Absolute);
+            bitmap.EndInit();
+
+            image_object.Source = bitmap;
+        }
+
         public Photos()
         {
             InitializeComponent();
@@ -40,32 +50,30 @@ namespace Final_Design_1
         {
             var fb = fb_client();
 
-            dynamic result = fb.Get("/me/albums?fields=cover_photo.width(800).height(800),source");
+            dynamic result = fb.Get("/me/albums?fields=cover_photo.width(1000).height(1000),source,name");
 
-            dynamic album = fb.Get("/" + result.data[0].id.ToString() + "?fields=name,picture,photos&fields=source");
+            dynamic album = fb.Get("/" + result.data[0].id.ToString() + "?fields=name,picture.type(album),photos&fields=source");
 
-            display_cover(album.picture.data.url.ToString());
+            set_image(album1_cover, album.picture.data.url);
+            album1_title.Text = result.data[0].name;
 
             text1.Text = result.ToString();
-        }
-
-        private void display_cover(string url)
-        {
-            var image = new Image();
-            var fullFilePath = url;
-
-            BitmapImage bitmap = new BitmapImage();
-            bitmap.BeginInit();
-            bitmap.UriSource = new Uri(fullFilePath, UriKind.Absolute);
-            bitmap.EndInit();
-
-            album1.Source = bitmap;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             MainWindow home = new MainWindow();
             base.Content = home;
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
