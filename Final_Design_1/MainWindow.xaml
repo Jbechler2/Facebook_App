@@ -15,5 +15,6 @@
         <Button x:Name="newsFeed" Content="News Feed" HorizontalAlignment="Left" Margin="465,449,0,0" VerticalAlignment="Top" Width="265" Height="168" FontFamily="Arial" FontSize="45" Click="Button_Click_3"/>
         <Button x:Name="photos"  Content="Photos" HorizontalAlignment="Left" Margin="808,449,0,0" VerticalAlignment="Top" Width="265" Height="168" FontFamily="Arial" FontSize="45" Click="Button_Click_4"/>
         <Button x:Name="exit_button"  Content="Exit" HorizontalAlignment="Left" Margin="1034,27,0,0" VerticalAlignment="Top" Width="201" Height="112" FontFamily="Arial" FontSize="40" Click="Button_Click_1"/>
+        <TextBox x:Name="debug" HorizontalAlignment="Left" Height="71" Margin="78,110,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="141"/>
     </Grid>
 </UserControl>
