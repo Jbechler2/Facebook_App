@@ -22,7 +22,7 @@ namespace Final_Design_1
     /// </summary>
     public partial class Photos : UserControl
     {
-        public dynamic albums;
+        static dynamic albums;
         public List<dynamic> album_photos = new List<dynamic>();
         public List<dynamic> photo_srcs = new List<dynamic>();
         static bool got_photos = false;
@@ -65,7 +65,8 @@ namespace Final_Design_1
         {
             InitializeComponent();
             album_cntr = 0;
-            get_albums();
+            if(!got_photos)
+                get_albums();
             preview_albums();
         }
 
@@ -92,6 +93,18 @@ namespace Final_Design_1
             bool album1_set = false;
             bool album2_set = false;
 
+            clear_album1();
+            clear_album2();
+
+            if (album_cntr >= albums.data.Count-1)
+            {
+                album1_cntr = albums.data.Count-2;
+                album_cntr = albums.data.Count-2;
+                preview_albums();
+            }
+
+            bound_albumCntr();
+
             while (album_cntr < albums.data.Count && (!album1_set || !album2_set))
             {
                 if (!album1_set)
@@ -101,7 +114,7 @@ namespace Final_Design_1
                     album1_set = true;
                 }
 
-                if (album_cntr > albums.data.Count)
+                if (album_cntr >= albums.data.Count)
                     continue;
 
                 if (!album2_set)
@@ -122,9 +135,20 @@ namespace Final_Design_1
 
         private void set_album2(dynamic album, dynamic photos)
         {
-            set_text(text1, album.ToString());
             set_text(album2_title, album.name);
             set_image(album2_cover, photos.data[0].source);
+        }
+
+        private void clear_album1()
+        {
+            album1_cover.Source = null;
+            album1_title.Text = "";
+        }
+
+        private void clear_album2()
+        {
+            album2_cover.Source = null;
+            album2_title.Text = "";
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -135,12 +159,52 @@ namespace Final_Design_1
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-           
+            album_cntr = album1_cntr - 2;
+            bound_albumCntr();
+            preview_albums();
         }
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
+            preview_albums();
+        }
 
+        private void scroll_back()
+        {
+            bool album1_set = false;
+            bool album2_set = false;
+            
+            album_cntr = album1_cntr-1;
+            bound_albumCntr();
+
+            while (album_cntr > 0 && ( !album1_set || !album2_set))
+            {
+                bound_albumCntr();
+                if (!album2_set)
+                {
+                    set_album2(albums.data[album_cntr], album_photos[album_cntr]);
+                    album2_cntr = album_cntr--;
+                    album2_set = true;
+                }
+
+                if (album_cntr < 0)
+                    continue;
+                if (!album1_set)
+                {
+                    set_album1(albums.data[album_cntr], album_photos[album_cntr]);
+                    album1_cntr = album_cntr--;
+                    album1_set = true;
+                }
+
+            }
+        }
+
+        private void bound_albumCntr()
+        {
+            if (album_cntr < 0)
+                album_cntr = 0;
+            if (album_cntr > albums.data.Count)
+                album_cntr = albums.data.Count + 1;
         }
 
         private void expand1_Click(object sender, RoutedEventArgs e)
