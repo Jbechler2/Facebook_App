@@ -72,10 +72,14 @@ namespace Final_Design_1
 
         private void get_albums()
         {
-            var fb = fb_client();
-            albums = fb.Get("/me/albums?fields=name");
+            if (!got_photos)
+            {
+                var fb = fb_client();
+                albums = fb.Get("/me/albums?fields=name");
 
-            get_photos(fb);
+                get_photos(fb);
+                got_photos = true;
+            }
         }
 
         private void get_photos(dynamic fb)
@@ -85,7 +89,6 @@ namespace Final_Design_1
             {
                 album_photos.Add(fb.Get("/" + albums.data[i].id + "/photos?fields=source,name"));
             }
-            got_photos = true;
         }
 
         private void preview_albums()
