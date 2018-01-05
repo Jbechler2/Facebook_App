@@ -228,6 +228,35 @@ namespace Final_Design_1
             }
         }
 
+        private void expand_post1()
+        {
+            clear_ex();
+
+            ex_Name.Content = post1_name.Text;
+            ex_status.Text = post1_status.Text;
+            if (post1_image1.Source != null)
+                set_image(ex_image, post1_image1.Source.ToString());
+            show_object(ex_grid);
+        }
+
+        private void expand_post2()
+        {
+            clear_ex();
+
+            ex_Name.Content = post2_name.Text;
+            ex_status.Text = post2_status.Text;
+            if (post2_image1.Source != null)
+                set_image(ex_image, post2_image1.Source.ToString());
+            show_object(ex_grid);
+        }
+
+        private void clear_ex()
+        {
+            ex_Name.Content = "";
+            ex_status.Text = "";
+            ex_image.Source = null;
+        }
+
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             MainWindow main = new MainWindow();
@@ -241,15 +270,22 @@ namespace Final_Design_1
             expand1.Click -= expand1_Click;
             expand1.Click += minimize1_Click;
             expand1.Content = "Minimize";
+            hide_object(post1_block);
+
+            expand_post1();
+
         }
 
         private void minimize1_Click(object sender, RoutedEventArgs e)
         {
             show_object(post2_block);
             show_object(expand2);
+            show_object(post1_block);
             expand1.Click -= minimize1_Click;
             expand1.Click += expand1_Click;
             expand1.Content = "Expand";
+
+            hide_object(ex_grid);
         }
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
@@ -265,19 +301,25 @@ namespace Final_Design_1
         private void expand2_Click(object sender, RoutedEventArgs e)
         {
             hide_object(post1_block);
+            hide_object(post2_block);
             hide_object(expand1);
             expand2.Click -= expand2_Click;
             expand2.Click += minimize2_Click;
             expand2.Content = "Minimize";
+
+            expand_post2();
         }
 
         private void minimize2_Click(object sender, RoutedEventArgs e)
         {
             show_object(post1_block);
+            show_object(post2_block);
             show_object(expand1);
             expand2.Click -= minimize2_Click;
             expand2.Click += expand2_Click;
             expand2.Content = "Expand";
+
+            hide_object(ex_grid);
         }
     }
 }
