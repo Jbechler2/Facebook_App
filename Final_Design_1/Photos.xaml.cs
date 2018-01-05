@@ -130,6 +130,65 @@ namespace Final_Design_1
             
         }
 
+        static int photo_cntr = 0;
+        static int photo1_cntr = 0;
+        static int photo2_cntr = 0;
+
+        static dynamic active_album = null;
+
+        private void display_photos(dynamic album)
+        {
+            active_album = album;
+            pic1.Source = null;
+            pic2.Source = null;
+
+            if (photo_cntr < 0)
+                photo_cntr = 0;
+            if (photo_cntr >= album.data.Count-1)
+                photo_cntr = album.data.Count - 2;
+            if(album.data.Count == 1)
+            {
+                set_image(pic1, album.data[0].source);
+            }
+            else
+            {
+                while (photo_cntr <= album.data.Count && !(pic1.Source != null && pic2.Source != null))
+                {
+                    if (pic1.Source == null)
+                    {
+                        set_image(pic1, album.data[photo_cntr++].source);
+                    }
+                    if (pic2.Source == null)
+                    {
+                        set_image(pic2, album.data[photo_cntr++].source);
+                    }
+                }
+            }
+            
+        }
+
+        private void display_photos2()
+        {
+            pic1.Source = null;
+            pic2.Source = null;
+
+            if (photo_cntr < 0)
+                photo_cntr = 0;
+            if (photo_cntr >= album_photos[album1_cntr].data.Count - 1)
+                photo_cntr = album_photos[album1_cntr].data.Count - 2;
+            while (photo_cntr <= album_photos[album1_cntr].data.Count && !(pic1.Source != null && pic2.Source != null))
+            {
+                if (pic1.Source == null)
+                {
+                    set_image(pic1, album_photos[album1_cntr].data[photo_cntr++].source);
+                }
+                if (pic2.Source == null)
+                {
+                    set_image(pic2, album_photos[album1_cntr].data[photo_cntr++].source);
+                }
+            }
+        }
+
         private void set_album1(dynamic album, dynamic photos)
         {
             set_text(album1_title, album.name);
@@ -214,12 +273,23 @@ namespace Final_Design_1
         {
             hide(next);
             hide(prev);
+            hide(album1);
             hide(expand2);
             hide(album2);
-            expand1.Content = "Minimize";
+            expand1.Content = "Minimize Album";
+
+            show(pic1);
+            show(pic2);
+            show(expand_pic1);
+            show(expand_pic2);
+            show(next_images);
+            show(prev_images);
+
+            expand1.Margin= new Thickness(expand1.Margin.Left + 245, expand1.Margin.Top, expand1.Margin.Right, expand1.Margin.Bottom);
 
             expand1.Click -= expand1_Click;
             expand1.Click += minimize_Click_1;
+            display_photos(album_photos[album1_cntr]);
         }
 
         private void expand2_Click(object sender, RoutedEventArgs e)
@@ -228,10 +298,21 @@ namespace Final_Design_1
             hide(prev);
             hide(expand1);
             hide(album1);
+            hide(album2);
             expand2.Content = "Minimize";
+
+            show(pic1);
+            show(pic2);
+            show(expand_pic1);
+            show(expand_pic2);
+            show(next_images);
+            show(prev_images);
+
+            expand2.Margin = new Thickness(expand2.Margin.Left - 245, expand2.Margin.Top, expand2.Margin.Right, expand2.Margin.Bottom);
 
             expand2.Click -= expand2_Click;
             expand2.Click += minimize_Click_2;
+            display_photos(album_photos[album2_cntr]);
         }
 
         private void minimize_Click_1(object sender, RoutedEventArgs e)
@@ -239,8 +320,20 @@ namespace Final_Design_1
             show(next);
             show(prev);
             show(expand2);
+            show(album1);
             show(album2);
             expand1.Content = "Expand";
+
+            hide(pic1);
+            hide(pic2);
+            hide(expand_pic1);
+            hide(expand_pic2);
+            hide(next_images);
+            hide(prev_images);
+
+            photo_cntr = 0;
+
+            expand1.Margin = new Thickness(expand1.Margin.Left - 245, expand1.Margin.Top, expand1.Margin.Right, expand1.Margin.Bottom);
 
             expand1.Click -= minimize_Click_1;
             expand1.Click += expand1_Click;
@@ -252,10 +345,33 @@ namespace Final_Design_1
             show(prev);
             show(expand1);
             show(album1);
+            show(album2);
             expand2.Content = "Expand";
+
+            hide(pic1);
+            hide(pic2);
+            hide(expand_pic1);
+            hide(expand_pic2);
+            hide(next_images);
+            hide(prev_images);
+
+            photo_cntr = 0;
+
+            expand2.Margin = new Thickness(expand2.Margin.Left + 245, expand2.Margin.Top, expand2.Margin.Right, expand2.Margin.Bottom);
 
             expand2.Click -= minimize_Click_2;
             expand2.Click += expand2_Click;
+        }
+
+        private void prev_images_Click(object sender, RoutedEventArgs e)
+        {
+            photo_cntr = photo_cntr - 4;
+            display_photos(active_album);
+        }
+
+        private void next_images_Click(object sender, RoutedEventArgs e)
+        {
+            display_photos(active_album);
         }
     }
 }

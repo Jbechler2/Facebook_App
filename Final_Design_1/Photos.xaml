@@ -9,18 +9,24 @@
     <Grid>
         <Button Content="Home" HorizontalAlignment="Left" Margin="44,27,0,0" VerticalAlignment="Top" Width="201" Height="112" FontFamily="Arial" FontSize="40" Click="Button_Click"/>
         <TextBox x:Name="text1" HorizontalAlignment="Left" Height="202" Margin="0,518,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="294"/>
-        <Button x:Name="prev" Content="Prev" HorizontalAlignment="Left" Margin="494,532,0,0" VerticalAlignment="Top" Width="166" Height="150" Click="Button_Click_1"/>
-        <Button x:Name="next" Content="Next" HorizontalAlignment="Left" Margin="788,532,0,0" VerticalAlignment="Top" Width="166" Height="150" Click="Button_Click_2"/>
+        <Button x:Name="prev" Content="Prev Two Albums" HorizontalAlignment="Left" Margin="328,560,0,0" VerticalAlignment="Top" Width="166" Height="150" Click="Button_Click_1"/>
+        <Button x:Name="next" Content="Next Two Albums" HorizontalAlignment="Left" Margin="1104,570,0,0" VerticalAlignment="Top" Width="166" Height="150" Click="Button_Click_2"/>
         <Grid x:Name="album1" HorizontalAlignment="Left" Height="290" Margin="307,122,0,0" VerticalAlignment="Top" Width="261">
             <Image x:Name="album1_cover" HorizontalAlignment="Left" Height="267" Margin="10,0,0,0" VerticalAlignment="Top" Width="241"/>
             <TextBlock x:Name="album1_title"  HorizontalAlignment="Left" Margin="95,272,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
         </Grid>
-        <Grid x:Name="album2" HorizontalAlignment="Left" Height="290" Margin="788,122,0,0" VerticalAlignment="Top" Width="262">
+        <Grid x:Name="album2" HorizontalAlignment="Left" Height="290" Margin="882,122,0,0" VerticalAlignment="Top" Width="262">
             <Image x:Name="album2_cover" HorizontalAlignment="Left" Height="267" Margin="10,0,0,0" VerticalAlignment="Top" Width="241"/>
             <TextBlock x:Name="album2_title"  HorizontalAlignment="Left" Margin="95,272,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
         </Grid>
 
         <Button x:Name="expand1" Content="Expand" HorizontalAlignment="Left" Height="61" Margin="321,417,0,0" VerticalAlignment="Top" Width="210" Click="expand1_Click"/>
-        <Button x:Name="expand2" Content="Expand" HorizontalAlignment="Left" Height="61" Margin="812,417,0,0" VerticalAlignment="Top" Width="210" Click="expand2_Click"/>
+        <Button x:Name="expand2" Content="Expand" HorizontalAlignment="Left" Height="61" Margin="906,417,0,0" VerticalAlignment="Top" Width="210" Click="expand2_Click"/>
+        <Image x:Name="pic2" HorizontalAlignment="Left" Height="271" Margin="801,122,0,0" VerticalAlignment="Top" Width="221" Visibility="Hidden"/>
+        <Image x:Name="pic1" HorizontalAlignment="Left" Height="271" Margin="321,122,0,0" VerticalAlignment="Top" Width="221" Visibility="Hidden"/>
+        <Button x:Name="next_images" Content="Next Two Pictures" HorizontalAlignment="Left" Margin="788,532,0,0" VerticalAlignment="Top" Width="166" Height="150" Visibility="Hidden" Click="next_images_Click"/>
+        <Button x:Name="prev_images" Content="Prev Two Images" HorizontalAlignment="Left" Margin="494,532,0,0" VerticalAlignment="Top" Width="166" Height="150" Visibility="Hidden" Click="prev_images_Click"/>
+        <Button x:Name="expand_pic1" Content="Expand Image" HorizontalAlignment="Left" Margin="321,417,0,0" VerticalAlignment="Top" Width="210" Height="61" Visibility="Hidden"/>
+        <Button x:Name="expand_pic2" Content="Expand Image" HorizontalAlignment="Left" Margin="812,417,0,0" VerticalAlignment="Top" Width="210" Height="61" Visibility="Hidden"/>
     </Grid>
 </UserControl>
