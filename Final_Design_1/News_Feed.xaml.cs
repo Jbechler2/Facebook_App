@@ -27,6 +27,7 @@ namespace Final_Design_1
         int post2_cntr = 0;
         static bool got_posts = false;
         static dynamic result;
+        static List<dynamic> comments = new List<dynamic>();
 
 
         public News_Feed()
@@ -72,7 +73,19 @@ namespace Final_Design_1
             var fb = fb_client();
             result = fb.Get("/me/posts?fields=message,from,attachments");
 
+            get_comments();
+
             got_posts = true;
+        }
+
+        private void get_comments()
+        {
+            var fb = fb_client();
+
+            for(int i = 0; i < result.data.Count; i++)
+            {
+                comments.Add(fb.Get("/" + result.data[i].id + "/comments?limit=10"));
+            }
         }
 
         private void set_posts(int opt)
@@ -231,7 +244,7 @@ namespace Final_Design_1
         private void expand_post1()
         {
             clear_ex();
-
+            set_comments(1);
             ex_Name.Content = post1_name.Text;
             ex_status.Text = post1_status.Text;
             if (post1_image1.Source != null)
@@ -239,10 +252,34 @@ namespace Final_Design_1
             show_object(ex_grid);
         }
 
+        private void set_comments(int post_num)
+        {
+            int temp;
+            show_object(ex_comments);
+
+            if(post_num == 1)
+            {
+                temp = post1_cntr;
+            }
+            else
+            {
+                temp = post2_cntr;
+            }
+
+            if(comments[temp].data.Count != 0)
+            {
+                for(int i = 0; i < comments[temp].data.Count; i++)
+                {
+                    ex_comments.Text += comments[temp].data[i].from.name + ": " + comments[temp].data[i].message + "\n";
+                }
+            }
+
+        }
+
         private void expand_post2()
         {
             clear_ex();
-
+            set_comments(2);
             ex_Name.Content = post2_name.Text;
             ex_status.Text = post2_status.Text;
             if (post2_image1.Source != null)
@@ -265,6 +302,8 @@ namespace Final_Design_1
 
         private void expand1_Click(object sender, RoutedEventArgs e)
         {
+            hide_object(prev);
+            hide_object(next);
             hide_object(post2_block);
             hide_object(expand2);
             expand1.Click -= expand1_Click;
@@ -278,6 +317,8 @@ namespace Final_Design_1
 
         private void minimize1_Click(object sender, RoutedEventArgs e)
         {
+            show_object(prev);
+            show_object(next);
             show_object(post2_block);
             show_object(expand2);
             show_object(post1_block);
@@ -285,7 +326,11 @@ namespace Final_Design_1
             expand1.Click += expand1_Click;
             expand1.Content = "Expand";
 
+            debug.Text = String.Empty;
+
             hide_object(ex_grid);
+            ex_comments.Text = String.Empty;
+            hide_object(ex_comments);
         }
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
@@ -300,6 +345,9 @@ namespace Final_Design_1
 
         private void expand2_Click(object sender, RoutedEventArgs e)
         {
+            debug.Text = comments[post2_cntr].ToString();
+            hide_object(prev);
+            hide_object(next);
             hide_object(post1_block);
             hide_object(post2_block);
             hide_object(expand1);
@@ -312,6 +360,8 @@ namespace Final_Design_1
 
         private void minimize2_Click(object sender, RoutedEventArgs e)
         {
+            show_object(prev);
+            show_object(next);
             show_object(post1_block);
             show_object(post2_block);
             show_object(expand1);
@@ -319,7 +369,46 @@ namespace Final_Design_1
             expand2.Click += expand2_Click;
             expand2.Content = "Expand";
 
+            debug.Text = String.Empty;
+
             hide_object(ex_grid);
+            ex_comments.Text = String.Empty;
+            hide_object(ex_comments);
+        }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            hide_object(new_post);
+            hide_object(post1_block);
+            hide_object(post2_block);
+            hide_object(prev);
+            hide_object(next);
+            hide_object(expand1);
+            hide_object(expand2);
+
+            show_object(post_newPost);
+            show_object(cancel_newPost);
+            show_object(new_status);
+            show_object(new_image);
+        }
+
+        private void cancel_newPost_Click(object sender, RoutedEventArgs e)
+        {
+            show_object(new_post);
+            show_object(post1_block);
+            show_object(post2_block);
+            show_object(prev);
+            show_object(next);
+            show_object(expand1);
+            show_object(expand2);
+            show_object(new_post);
+
+            hide_object(cancel_newPost);
+            hide_object(post_newPost);
+            hide_object(new_status);
+            hide_object(new_image);
+
+
         }
     }
 }

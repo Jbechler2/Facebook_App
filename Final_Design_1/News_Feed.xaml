@@ -51,6 +51,12 @@
                 <TextBlock x:Name="post2_status"  HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Margin="15,80,0,0" Height="108" Width="332"/>
             </Grid>
         </Border>
+        <Button x:Name="new_post" Content="New Post" HorizontalAlignment="Left" Margin="1121,620,0,0" VerticalAlignment="Top" Width="119" Height="90" FontWeight="Bold" FontSize="22" Click="Button_Click_3"/>
+        <Button x:Name="cancel_newPost" Content="Cancel" HorizontalAlignment="Left" Margin="288,542,0,0" VerticalAlignment="Top" Width="97" Height="82" FontWeight="Bold" FontSize="22" Click="cancel_newPost_Click" Visibility="Hidden"/>
+        <Button x:Name="post_newPost" Content="Post" HorizontalAlignment="Left" Margin="424,542,0,0" VerticalAlignment="Top" Width="97" Height="82" FontWeight="Bold" FontSize="22" Visibility="Hidden"/>
+        <TextBox x:Name="new_status" HorizontalAlignment="Left" Height="237" Margin="320,115,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="224" Visibility="Hidden"/>
+        <Image x:Name="new_image" HorizontalAlignment="Left" Height="281" Margin="688,115,0,0" VerticalAlignment="Top" Width="211" Visibility="Hidden"/>
+        <TextBlock x:Name="ex_comments" HorizontalAlignment="Left" Margin="357,580,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Visibility="Hidden"/>
 
 
     </Grid>
