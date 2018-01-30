@@ -8,13 +8,202 @@
              Background="#FF3B5998">
     <Grid>
         <Label x:Name="fb_title" Content="Facebook" HorizontalAlignment="Left" Margin="433,49,0,0" VerticalAlignment="Top" Height="90" Width="342" FontSize="70" FontWeight="Bold" FontFamily="Arial" Foreground="White"/>
-        <Button x:Name="notifs" Content="Notifications" HorizontalAlignment="Left" Margin="132,225,0,0" VerticalAlignment="Top" Width="265" Height="168" FontFamily="Arial" FontSize="45" Click="Button_Click_2"/>
-        <Button x:Name="prof"  Content="Profile" HorizontalAlignment="Left" Margin="465,225,0,0" VerticalAlignment="Top" Width="265" Height="168" FontFamily="Arial" FontSize="45" Click="Button_Click"/>
-        <Button x:Name="messages"  Content="Messaging" HorizontalAlignment="Left" Margin="808,225,0,0" VerticalAlignment="Top" Width="265" Height="168" FontFamily="Arial" FontSize="45" Click="Button_Click_5"/>
-        <Button x:Name="friends" Content="Friends" HorizontalAlignment="Left" Margin="132,449,0,0" VerticalAlignment="Top" Width="265" Height="168" FontFamily="Arial" FontSize="45" Click="Button_Click_6"/>
-        <Button x:Name="newsFeed" Content="News Feed" HorizontalAlignment="Left" Margin="465,449,0,0" VerticalAlignment="Top" Width="265" Height="168" FontFamily="Arial" FontSize="45" Click="Button_Click_3"/>
-        <Button x:Name="photos"  Content="Photos" HorizontalAlignment="Left" Margin="808,449,0,0" VerticalAlignment="Top" Width="265" Height="168" FontFamily="Arial" FontSize="45" Click="Button_Click_4"/>
-        <Button x:Name="exit_button"  Content="Exit" HorizontalAlignment="Left" Margin="1034,27,0,0" VerticalAlignment="Top" Width="201" Height="112" FontFamily="Arial" FontSize="40" Click="Button_Click_1"/>
+        <Button x:Name="notifs" Content="Notifications" HorizontalAlignment="Left" Margin="132,225,0,0" VerticalAlignment="Top" Width="265" Height="168" FontFamily="Arial" FontSize="45" Click="Button_Click_2">
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <Grid>
+                        <Ellipse Stroke="Black"
+                         StrokeThickness="2">
+                            <Ellipse.Fill>
+                                <RadialGradientBrush>
+                                    <GradientStop Offset="0"
+                                          Color="Orange" />
+                                    <GradientStop Offset="1"
+                                          Color="Orange" />
+                                    <GradientStop Offset="1"
+                                          Color="DarkOrange" />
+                                    <RadialGradientBrush.Transform>
+                                        <TransformGroup>
+                                            <ScaleTransform ScaleY=".93" />
+                                        </TransformGroup>
+                                    </RadialGradientBrush.Transform>
+                                </RadialGradientBrush>
+                            </Ellipse.Fill>
+                        </Ellipse>
+                        <ContentPresenter HorizontalAlignment="Center"
+                                  VerticalAlignment="Center"/>
+                    </Grid>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+        <Button x:Name="prof"  Content="Profile" HorizontalAlignment="Left" Margin="465,144,0,0" VerticalAlignment="Top" Width="265" Height="168" FontFamily="Arial" FontSize="45" Click="Button_Click">
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <Grid>
+                        <Ellipse Stroke="Black"
+                         StrokeThickness="2">
+                            <Ellipse.Fill>
+                                <RadialGradientBrush>
+                                    <GradientStop Offset="0"
+                                          Color="GreenYellow"  />
+                                    <GradientStop Offset="1"
+                                          Color="GreenYellow" />
+                                    <GradientStop Offset="1"
+                                          Color="Green"/>
+                                    <RadialGradientBrush.Transform>
+                                        <TransformGroup>
+                                            <ScaleTransform ScaleY=".93" />
+                                        </TransformGroup>
+                                    </RadialGradientBrush.Transform>
+                                </RadialGradientBrush>
+                            </Ellipse.Fill>
+                        </Ellipse>
+                        <ContentPresenter HorizontalAlignment="Center"
+                                  VerticalAlignment="Center"/>
+                    </Grid>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+        <Button x:Name="messages"  Content="Messaging" HorizontalAlignment="Left" Margin="808,225,0,0" VerticalAlignment="Top" Width="265" Height="168" FontFamily="Arial" FontSize="45" Click="Button_Click_5">
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <Grid>
+                        <Ellipse Stroke="Black"
+                         StrokeThickness="2">
+                            <Ellipse.Fill>
+                                <RadialGradientBrush>
+                                    <GradientStop Offset="0"
+                                          Color="Red" />
+                                    <GradientStop Offset="1"
+                                          Color="Red" />
+                                    <GradientStop Offset="1"
+                                          Color="DarkRed" />
+                                    <RadialGradientBrush.Transform>
+                                        <TransformGroup>
+                                            <ScaleTransform ScaleY=".93" />
+                                        </TransformGroup>
+                                    </RadialGradientBrush.Transform>
+                                </RadialGradientBrush>
+                            </Ellipse.Fill>
+                        </Ellipse>
+                        <ContentPresenter HorizontalAlignment="Center"
+                                  VerticalAlignment="Center"/>
+                    </Grid>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+        <Button x:Name="friends" Content="Friends" HorizontalAlignment="Left" Margin="132,449,0,0" VerticalAlignment="Top" Width="265" Height="168" FontFamily="Arial" FontSize="45" Click="Button_Click_6">
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <Grid>
+                        <Ellipse Stroke="Black"
+                         StrokeThickness="2">
+                            <Ellipse.Fill>
+                                <RadialGradientBrush>
+                                    <GradientStop Offset="0"
+                                          Color="Orange" />
+                                    <GradientStop Offset="1"
+                                          Color="Orange" />
+                                    <GradientStop Offset="1"
+                                          Color="DarkOrange" />
+                                    <RadialGradientBrush.Transform>
+                                        <TransformGroup>
+                                            <ScaleTransform ScaleY=".93" />
+                                        </TransformGroup>
+                                    </RadialGradientBrush.Transform>
+                                </RadialGradientBrush>
+                            </Ellipse.Fill>
+                        </Ellipse>
+                        <ContentPresenter HorizontalAlignment="Center"
+                                  VerticalAlignment="Center"/>
+                    </Grid>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+        <Button x:Name="newsFeed" Content="News Feed" HorizontalAlignment="Left" Margin="465,449,0,0" VerticalAlignment="Top" Width="265" Height="168" FontFamily="Arial" FontSize="45" Click="Button_Click_3">
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <Grid>
+                        <Ellipse Stroke="Black"
+                         StrokeThickness="2">
+                            <Ellipse.Fill>
+                                <RadialGradientBrush>
+                                    <GradientStop Offset="0"
+                                          Color="Orange" />
+                                    <GradientStop Offset="1"
+                                          Color="Orange" />
+                                    <GradientStop Offset="1"
+                                          Color="DarkOrange" />
+                                    <RadialGradientBrush.Transform>
+                                        <TransformGroup>
+                                            <ScaleTransform ScaleY=".93" />
+                                        </TransformGroup>
+                                    </RadialGradientBrush.Transform>
+                                </RadialGradientBrush>
+                            </Ellipse.Fill>
+                        </Ellipse>
+                        <ContentPresenter HorizontalAlignment="Center"
+                                  VerticalAlignment="Center"/>
+                    </Grid>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+        <Button x:Name="photos"  Content="Photos" HorizontalAlignment="Left" Margin="808,449,0,0" VerticalAlignment="Top" Width="265" Height="168" FontFamily="Arial" FontSize="45" Click="Button_Click_4">
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <Grid>
+                        <Ellipse Stroke="Black"
+                         StrokeThickness="2">
+                            <Ellipse.Fill>
+                                <RadialGradientBrush>
+                                    <GradientStop Offset="0"
+                                          Color="Orange" />
+                                    <GradientStop Offset="1"
+                                          Color="Orange" />
+                                    <GradientStop Offset="1"
+                                          Color="DarkOrange" />
+                                    <RadialGradientBrush.Transform>
+                                        <TransformGroup>
+                                            <ScaleTransform ScaleY=".93" />
+                                        </TransformGroup>
+                                    </RadialGradientBrush.Transform>
+                                </RadialGradientBrush>
+                            </Ellipse.Fill>
+                        </Ellipse>
+                        <ContentPresenter HorizontalAlignment="Center"
+                                  VerticalAlignment="Center"/>
+                    </Grid>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+        <Button x:Name="exit_button"  Content="Exit" HorizontalAlignment="Left" Margin="1034,27,0,0" VerticalAlignment="Top" Width="201" Height="112" FontFamily="Arial" FontSize="40" Click="Button_Click_1">
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <Grid>
+                        <Ellipse Stroke="Black"
+                         StrokeThickness="2">
+                            <Ellipse.Fill>
+                                <RadialGradientBrush>
+                                    <GradientStop Offset="0"
+                                          Color="Orange" />
+                                    <GradientStop Offset="1"
+                                          Color="Orange" />
+                                    <GradientStop Offset="1"
+                                          Color="DarkOrange" />
+                                    <RadialGradientBrush.Transform>
+                                        <TransformGroup>
+                                            <ScaleTransform ScaleY=".93" />
+                                        </TransformGroup>
+                                    </RadialGradientBrush.Transform>
+                                </RadialGradientBrush>
+                            </Ellipse.Fill>
+                        </Ellipse>
+                        <ContentPresenter HorizontalAlignment="Center"
+                                  VerticalAlignment="Center"/>
+                    </Grid>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
         <TextBox x:Name="debug" HorizontalAlignment="Left" Height="71" Margin="78,110,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="141"/>
     </Grid>
 </UserControl>

@@ -28,5 +28,7 @@
         <Button x:Name="prev_images" Content="Prev Two Images" HorizontalAlignment="Left" Margin="494,532,0,0" VerticalAlignment="Top" Width="166" Height="150" Visibility="Hidden" Click="prev_images_Click"/>
         <Button x:Name="expand_pic1" Content="Expand Image" HorizontalAlignment="Left" Margin="321,417,0,0" VerticalAlignment="Top" Width="210" Height="61" Visibility="Hidden"/>
         <Button x:Name="expand_pic2" Content="Expand Image" HorizontalAlignment="Left" Margin="812,417,0,0" VerticalAlignment="Top" Width="210" Height="61" Visibility="Hidden"/>
+        <TextBlock HorizontalAlignment="Left" x:Name ="pic1_caption" Margin="93,456,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" x:Name ="pic2_caption" Margin="1179,412,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
     </Grid>
 </UserControl>

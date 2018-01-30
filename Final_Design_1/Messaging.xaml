@@ -7,13 +7,19 @@
              mc:Ignorable="d" 
              d:DesignHeight="720" d:DesignWidth="1280" Background="#FF3B5998">
     <Grid>
-        <Label Content="Facebook" HorizontalAlignment="Left" Margin="433
-               ,49,0,0" VerticalAlignment="Top" Height="90" Width="342" FontSize="70" FontWeight="Bold" FontFamily="Arial" Foreground="White"/>
+        <Label Content="Messages" HorizontalAlignment="Left" Margin="363,10,0,0" VerticalAlignment="Top" Height="90" Width="342" FontSize="70" FontWeight="Bold" FontFamily="Arial" Foreground="White"/>
         <Button Content="Home" HorizontalAlignment="Left" Margin="44,27,0,0" VerticalAlignment="Top" Width="201" Height="112" FontFamily="Arial" FontSize="40" Click="Button_Click"/>
-        <TextBox x:Name="text1" HorizontalAlignment="Left" Height="700" Margin="843,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="427"/>
-        <Label x:Name="conv1" Content="" HorizontalAlignment="Left" Margin="66,196,0,0" VerticalAlignment="Top" Height="32" Width="142"/>
-        <Label x:Name="conv2" Content="" HorizontalAlignment="Left" Margin="514,196,0,0" VerticalAlignment="Top" Height="32" Width="142"/>
-        <TextBox x:Name="messages1" HorizontalAlignment="Left" Height="364" Margin="10,258,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="322"/>
-        <TextBox x:Name="messages2" HorizontalAlignment="Left" Height="364" Margin="433,258,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="320"/>
+        <TextBox x:Name="text1" HorizontalAlignment="Left" Height="700" Margin="841,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="427" Visibility="Hidden"/>
+        <Button x:Name="scroll_up" Content="^" HorizontalAlignment="Left" Height="49" Margin="44,163,0,0" VerticalAlignment="Top" Width="201" FontWeight="Bold" FontSize="25"/>
+        <Button x:Name="scroll_down" Content="⌄" HorizontalAlignment="Left" Height="49" Margin="44,449,0,0" VerticalAlignment="Top" Width="201" FontWeight="Bold" FontSize="25"/>
+        <TextBlock x:Name="thread_name" HorizontalAlignment="Left" Height="34" Margin="414,105,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="217"/>
+        <TextBox x:Name="thread_messages" HorizontalAlignment="Left" Height="94" Margin="346,144,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="566" Visibility="Hidden"/>
+        <TextBox x:Name="reply_message" HorizontalAlignment="Left" Height="119" Margin="346,524,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="369" Visibility="Hidden"/>
+        <Button x:Name="reply" Content="Reply" HorizontalAlignment="Left" Height="58" Margin="346,652,0,0" VerticalAlignment="Top" Width="369" Visibility="Hidden"/>
+        <Grid x:Name="threads" HorizontalAlignment="Left" Height="212" Margin="35,223,0,0" VerticalAlignment="Top" Width="223">
+            <Button x:Name="thread1" Content="" HorizontalAlignment="Left" Height="49" Margin="12,9,0,0" VerticalAlignment="Top" Width="201" Click="thread1_Click"/>
+            <Button x:Name="thread2" Content="" HorizontalAlignment="Left" Height="47" Margin="12,81,0,0" VerticalAlignment="Top" Width="201"/>
+            <Button x:Name="thread3" Content="" HorizontalAlignment="Left" Height="47" Margin="12,155,0,0" VerticalAlignment="Top" Width="201"/>
+        </Grid>
     </Grid>
 </UserControl>

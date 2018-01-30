@@ -30,40 +30,61 @@ namespace Final_Design_1
 
         public dynamic fb_client()
         {
+
+
             dynamic result = new FacebookClient("EAAE3jEAMPzkBABigoPndSjT8j4c1ctw0Tpve0tA6lIUztWZC5ZBboLUNx8ZCLUtl6haz4qDE9ZBpDoxhRKDkZAcDeT0ZCCuGP2S3EvXjHoLiZCtmRUQBLkKraFErIoHKLDedBKWgbWfguhf7rf2w2pAMJjvKjpfZAsnEkRQ2dTPp0QZDZD");
             return result;
+
         }
+
+        /* Posistion_elements()
+		 * 
+		 * Sets the system parameters for buttons and and text buttons
+		 * to ensure that across all systems the buttons are uniform
+		 * regardless of screen size
+		 * 
+		 * Variables defined:
+		 * window_width - the size of the system's width
+		 * window_height - the size of the system's height
+		 * Margin - placement on the screen
+		 * 
+		 * nothing is returned
+		 *
+		 **/
+
 
         private void position_elements()
         {
             var window_width = SystemParameters.PrimaryScreenWidth;
             var window_height = SystemParameters.PrimaryScreenHeight;
-            fb_title.Margin = new Thickness(window_width*0.35, window_height*.05, 0, 0);
-            notifs.Margin = new Thickness(window_width * .06, window_height * .33, 0, 0);
-            prof.Margin = new Thickness(window_width * .41, window_height * .33, 0, 0);
-            messages.Margin = new Thickness(window_width * .75, window_height * .33, 0, 0);
-            friends.Margin = new Thickness(window_width * .06, window_height * .75, 0, 0);
-            newsFeed.Margin = new Thickness(window_width * .41, window_height * .75, 0, 0);
-            photos.Margin = new Thickness(window_width * .75, window_height * .75, 0, 0);
+            fb_title.Margin = new Thickness(window_width * 0.35, window_height * .05, 0, 0);
+            notifs.Margin = new Thickness(window_width * .10, window_height * .25, 0, 0); //.06, .33
+            prof.Margin = new Thickness(window_width * .41, window_height * .25, 0, 0); //.41, .33
+            messages.Margin = new Thickness(window_width * .72, window_height * .25, 0, 0); //.75, .33
+            friends.Margin = new Thickness(window_width * .10, window_height * .66, 0, 0); //.06, .75
+            newsFeed.Margin = new Thickness(window_width * .41, window_height * .66, 0, 0); //.41, .75
+            photos.Margin = new Thickness(window_width * .72, window_height * .66, 0, 0); //.75, .75
             exit_button.Margin = new Thickness(window_width * .85, window_height * .03, 0, 0);
 
-            notifs.Height = window_height * .24;
-            notifs.Width = window_width * .2;
+            notifs.Height = window_height * .30;
+            notifs.Width = window_width * .18;
 
-            prof.Height = window_height * .24;
-            prof.Width = window_width * .2;
+            prof.Height = window_height * .30;  //.24
+            prof.Width = window_width * .18;     //.2
 
-            messages.Height = window_height * .24;
-            messages.Width = window_width * .2;
+            messages.Height = window_height * .30;
+            messages.Width = window_width * .18;
 
-            friends.Height = window_height * .24;
-            friends.Width = window_width * .2;
+            friends.Height = window_height * .30;
+            friends.Width = window_width * .18;
 
-            newsFeed.Height = window_height * .24;
-            newsFeed.Width = window_width * .2;
+            newsFeed.Height = window_height * .30;
+            newsFeed.Width = window_width * .18;
 
-            photos.Height = window_height * .24;
-            photos.Width = window_width * .2;
+            photos.Height = window_height * .30;
+            photos.Width = window_width * .18;
+
+
 
         }
 
@@ -82,6 +103,8 @@ namespace Final_Design_1
         {
             Notifications notifs = new Notifications();
             this.Content = notifs;
+
+
         }
         private void Button_Click_3(object sender, RoutedEventArgs e)
         {
@@ -95,7 +118,7 @@ namespace Final_Design_1
         }
         private void Button_Click_5(object sender, RoutedEventArgs e)
         {
-            Messaging messaging = new Messaging();
+            Messaging_New messaging = new Messaging_New();
             this.Content = messaging;
         }
         private void Button_Click_6(object sender, RoutedEventArgs e)

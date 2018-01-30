@@ -294,3 +294,5 @@ C:\Users\jbech\Documents\git_repos\Facebook_App\Final_Design_1\obj\Debug\TestWin
 C:\Users\jbech\Documents\git_repos\Facebook_App\Final_Design_1\obj\Debug\Final_Design_1.g.resources
 C:\Users\jbech\Documents\git_repos\Facebook_App\Final_Design_1\obj\Debug\Final_Design_1.Properties.Resources.resources
 C:\Users\jbech\Documents\git_repos\Facebook_App\Final_Design_1\obj\Debug\Final_Design_1.csproj.GenerateResource.Cache
+C:\Users\jbech\Documents\git_repos\Facebook_App\Final_Design_1\obj\Debug\Messaging_New.g.cs
+C:\Users\jbech\Documents\git_repos\Facebook_App\Final_Design_1\obj\Debug\Messaging_New.baml

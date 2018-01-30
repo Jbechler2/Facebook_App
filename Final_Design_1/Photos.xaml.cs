@@ -23,9 +23,10 @@ namespace Final_Design_1
     public partial class Photos : UserControl
     {
         static dynamic albums;
-        public List<dynamic> album_photos = new List<dynamic>();
-        public List<dynamic> photo_srcs = new List<dynamic>();
+        public static List<dynamic> album_photos = new List<dynamic>();
+        public static List<dynamic> photo_srcs = new List<dynamic>();
         static bool got_photos = false;
+        static int photo_cntr = 0;
         static public int album_cntr = 0;
         static public int album1_cntr = 0;
         static public int album2_cntr = 0;
@@ -45,7 +46,7 @@ namespace Final_Design_1
 
             image_object.Source = bitmap;
         }
-        
+
         private void set_text(dynamic text_object, string text)
         {
             text_object.Text = text;
@@ -65,7 +66,8 @@ namespace Final_Design_1
         {
             InitializeComponent();
             album_cntr = 0;
-            if(!got_photos)
+            photo_cntr = 0;
+            if (!got_photos)
                 get_albums();
             preview_albums();
         }
@@ -99,10 +101,10 @@ namespace Final_Design_1
             clear_album1();
             clear_album2();
 
-            if (album_cntr >= albums.data.Count-1)
+            if (album_cntr >= albums.data.Count - 1)
             {
-                album1_cntr = albums.data.Count-2;
-                album_cntr = albums.data.Count-2;
+                album1_cntr = albums.data.Count - 2;
+                album_cntr = albums.data.Count - 2;
                 preview_albums();
             }
 
@@ -127,12 +129,10 @@ namespace Final_Design_1
                     album2_set = true;
                 }
             }
-            
+
         }
 
-        static int photo_cntr = 0;
-        static int photo1_cntr = 0;
-        static int photo2_cntr = 0;
+        
 
         static dynamic active_album = null;
 
@@ -144,11 +144,16 @@ namespace Final_Design_1
 
             if (photo_cntr < 0)
                 photo_cntr = 0;
-            if (photo_cntr >= album.data.Count-1)
+            if (photo_cntr >= album.data.Count - 1)
                 photo_cntr = album.data.Count - 2;
-            if(album.data.Count == 1)
+            if (album.data.Count == 1)
             {
                 set_image(pic1, album.data[0].source);
+                if (album.data[0].ContainsKey("name"))
+                {
+                    set_text(pic1_caption, album.data[0].name);
+                }
+
             }
             else
             {
@@ -156,15 +161,34 @@ namespace Final_Design_1
                 {
                     if (pic1.Source == null)
                     {
-                        set_image(pic1, album.data[photo_cntr++].source);
+                        set_image(pic1, album.data[photo_cntr].source);
+                        if (album.data[photo_cntr].ContainsKey("name"))
+                        {
+                            set_text(pic1_caption, album.data[photo_cntr].name);
+                        }
+                        else
+                        {
+                            set_text(pic1_caption, null);
+                        }
+                        photo_cntr++;
                     }
                     if (pic2.Source == null)
                     {
-                        set_image(pic2, album.data[photo_cntr++].source);
+                        set_image(pic2, album.data[photo_cntr].source);
+                        if (album.data[photo_cntr].ContainsKey("name"))
+                        {
+                            set_text(pic2_caption, album.data[photo_cntr].name);
+                        }
+                        else
+                        {
+                            set_text(pic2_caption, null);
+                        }
+                        photo_cntr++;
                     }
+
                 }
             }
-            
+
         }
 
         private void display_photos2()
@@ -235,11 +259,11 @@ namespace Final_Design_1
         {
             bool album1_set = false;
             bool album2_set = false;
-            
-            album_cntr = album1_cntr-1;
+
+            album_cntr = album1_cntr - 1;
             bound_albumCntr();
 
-            while (album_cntr > 0 && ( !album1_set || !album2_set))
+            while (album_cntr > 0 && (!album1_set || !album2_set))
             {
                 bound_albumCntr();
                 if (!album2_set)
@@ -285,7 +309,7 @@ namespace Final_Design_1
             show(next_images);
             show(prev_images);
 
-            expand1.Margin= new Thickness(expand1.Margin.Left + 245, expand1.Margin.Top, expand1.Margin.Right, expand1.Margin.Bottom);
+            expand1.Margin = new Thickness(expand1.Margin.Left + 245, expand1.Margin.Top, expand1.Margin.Right, expand1.Margin.Bottom);
 
             expand1.Click -= expand1_Click;
             expand1.Click += minimize_Click_1;
@@ -317,6 +341,9 @@ namespace Final_Design_1
 
         private void minimize_Click_1(object sender, RoutedEventArgs e)
         {
+
+            set_text(pic1_caption, null);
+
             show(next);
             show(prev);
             show(expand2);
@@ -341,6 +368,8 @@ namespace Final_Design_1
 
         private void minimize_Click_2(object sender, RoutedEventArgs e)
         {
+            set_text(pic2_caption, null);
+
             show(next);
             show(prev);
             show(expand1);

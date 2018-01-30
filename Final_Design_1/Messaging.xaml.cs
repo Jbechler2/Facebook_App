@@ -23,7 +23,12 @@ namespace Final_Design_1
     public partial class Messaging : UserControl
     {
         private static int count;
-
+        static dynamic result;
+        static dynamic conversations;
+        static List<dynamic> messages = new List<dynamic>();
+        int thread1_index;
+        int thread2_index;
+        int thread3_index; //These indexes are update whenever the buttons on the left are updated. The indexes allow for conversations to be pulled from the coversation data structure instantaneously.
 
         /*This is simply a shortcut for creating a Facebook Client connection. It opens a connection to a user's personal page by using a 
          user access token*/
@@ -37,6 +42,38 @@ namespace Final_Design_1
         {
             InitializeComponent();
             get_conversations(get_page_token()); //Gets the conversation info from a page associated with a user's account. The argument is the page access token.
+            display_threads();
+        }
+
+        private void get_messages()
+        {
+
+        }
+
+        private void display_threads()
+        {
+            int j = 0;
+            foreach(Control ctrl in threads.Children)
+            {
+                if(ctrl.GetType() == typeof(Button) && j < conversations.data.Count)
+                {
+                    if (conversations.data[j].ContainsKey("participants"))
+                    {
+                        ((Button)ctrl).Content = conversations.data[j].participants.data[0].name;
+                        update_threadIndex((Button)ctrl, j++);
+                    }
+                }
+            }
+        }
+
+        private void update_threadIndex(Control thread, int index)
+        {
+            if (thread.Name == "thread1")
+                thread1_index = index;
+            if (thread.Name == "thread2")
+                thread2_index = index;
+            if (thread.Name == "thread3")
+                thread3_index = index;
         }
 
         /*Opens a connection to the user's profile and gets and returns the page access token in string form*/
@@ -45,7 +82,7 @@ namespace Final_Design_1
             string page_token = "";
             var fb = fb_client();
 
-            dynamic result = fb.Get("/me/accounts");
+            result = fb.Get("/me/accounts");
 
             //text1.Text = result.data[0].access_token.ToString();
 
@@ -60,15 +97,15 @@ namespace Final_Design_1
         {
             var fb = new FacebookClient(access_token);
 
-            dynamic result = fb.Get("/me/conversations?fields=participants,messages");
+            conversations = fb.Get("/me/conversations?fields=participants,messages");
 
             //text1.Text = result.ToString();
 
-            for (int i = 0; i < result.data.Count; i++)
-            {
-                display_participants(result.data[i]);
-                display_messages(result.data[i].id);
-            }
+           //for (int i = 0; i < result.data.Count; i++)
+           // {
+           //     display_participants(result.data[i]);
+           //    display_messages(result.data[i].id);
+           //}
         }
 
         /*Given the id of a conversation, pulls the related information about messages including the messages themselves and who the message was sent by. It then displays the messages
@@ -86,7 +123,7 @@ namespace Final_Design_1
                 //text1.Text = result.ToString();
                 for (int i = 0; i < result.data.Count; i++)
                 {
-                    messages1.Text += result.data[i].from.name.ToString() + ": " + result.data[i].message.ToString() + "\n";
+                    //messages1.Text += result.data[i].from.name.ToString() + ": " + result.data[i].message.ToString() + "\n";
                 }
                 count++;
             }
@@ -96,7 +133,7 @@ namespace Final_Design_1
                 //messages1.Text = result.ToString();
                 for (int i = 0; i < result.data.Count; i++)
                 {
-                    messages2.Text += result.data[i].from.name.ToString() + ": " + result.data[i].message.ToString() + "\n";
+                    //messages2.Text += result.data[i].from.name.ToString() + ": " + result.data[i].message.ToString() + "\n";
                 }
                 count++;
             }
@@ -111,11 +148,19 @@ namespace Final_Design_1
 
             if (count == 0)
             {
-                conv1.Content = conv_data.participants.data[0].name;
+                //conv1.Content = conv_data.participants.data[0].name;
             }
             else if (count == 1)
             {
-                conv2.Content = conv_data.participants.data[0].name;
+                //conv2.Content = conv_data.participants.data[0].name;
+            }
+        }
+
+        private void get_messages(int index)
+        {
+            for(int i = 0; i < result.data[index].messages.data.Count; i++)
+            {
+
             }
         }
 
@@ -124,6 +169,11 @@ namespace Final_Design_1
             count = 0;
             MainWindow home = new MainWindow();
             base.Content = home;
+        }
+
+        private void thread1_Click(object sender, RoutedEventArgs e)
+        {
+            get_messages(thread1_index);
         }
     }
 }
