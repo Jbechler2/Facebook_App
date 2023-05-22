@@ -1,3 +1,9 @@
+<p>
+    <a href="https://vaunt.dev">
+        <img src="https://api.vaunt.dev/v1/github/entities/{{github_username}}/contributions?format=svg" width="350" title="Includes public contributions"/>
+    </a>
+</p>
+
 # Desktop Facebook Application
 
 The goal of this project is to provide access to Facebook in a way that is useful for someone using an eye gaze device. The application is built using Facebook's Graph API to request the necessary information from Facebook. It is built in C#, using the WPF format(as opposed to WinForms), and is being constructed in the Visual Studio IDE.
@@ -15,3 +21,4 @@ To run this program using your own Facebook account, go to the [Graph API Explor
 * Jacob Bechler
 * Rory Hector
 * Nick Charles
+
